@@ -5,11 +5,11 @@ import (
 	"strings"
 )
 
-func myAtoi(str string) int {
+func myAtoi2(str string) int {
 	return convert(clean(str))
 }
 
-func clean(s string) (sign int, abs string) {
+func clean2(s string) (sign int, abs string) {
 	// 先去除首尾空格
 	s = strings.TrimSpace(s)
 	if s == "" {
@@ -44,7 +44,7 @@ func clean(s string) (sign int, abs string) {
 }
 
 // 接收的输入是已经处理过的纯数字
-func convert(sign int, absStr string) int {
+func convert2(sign int, absStr string) int {
 	absNum := 0
 	for _, b := range absStr {
 		// b - '0' ==> 得到这个字符类型的数字的真实数值的绝对值

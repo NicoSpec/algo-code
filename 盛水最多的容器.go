@@ -18,7 +18,7 @@ func maxArea(height []int) int {
 	return res
 }
 
-func max(pre, next int) int {
+func max2(pre, next int) int {
 	if pre < next {
 		return next
 	}
