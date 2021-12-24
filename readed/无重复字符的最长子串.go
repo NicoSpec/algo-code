@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /**
 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
 
@@ -36,25 +38,6 @@ s 由英文字母、数字、符号和空格组成
 链接：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-func lengthOfLongestSubstring(s string) int {
-	m := map[byte]bool{}
-	n := len(s)
-
-	rk, ans := 0, 0
-
-	for i := range s{
-		if i != 0 {
-			delete(m, s[i-1])
-		}
-		for rk < n && !m[s[rk]] {
-			m[s[rk]] = true
-			rk++
-		}
-
-		ans = max(ans, rk - i)
-	}
-	return ans
-}
 
 
 func max(x, y int) int {
@@ -63,3 +46,31 @@ func max(x, y int) int {
 	}
 	return x
 }
+func main() {
+	n := lenghtOfLongestString("abcabcbb")
+	fmt.Println(n)
+}
+
+func lenghtOfLongestString(s string) int {
+	m := map[int32]bool{}
+	pre := 0
+	maxLen := 0
+	for k,v := range s {
+		if m[v] == false {
+			maxLen = max(maxLen,k - pre + 1)
+		}else {
+			for pre < k {
+				delete(m,int32(s[pre]))
+				if int32(s[pre]) == v {
+					pre++
+					break
+				}
+				pre++
+			}
+		}
+		m[v] = true
+	}
+	return maxLen
+}
+
+

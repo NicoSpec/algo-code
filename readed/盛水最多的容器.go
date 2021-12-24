@@ -1,4 +1,6 @@
-package main
+package readed
+
+import "algo-code/readed"
 
 // 最大盛水容器
 func maxArea(height []int) int {
@@ -8,10 +10,10 @@ func maxArea(height []int) int {
 
 	for i < j {
 		if height[i] < height[j] {
-			res = max(res, (j - i) * height[i])
+			res = readed.max(res, (j - i) * height[i])
 			i = i + 1
 		} else {
-			res = max(res, (j - i) * height[j])
+			res = readed.max(res, (j - i) * height[j])
 			j = j - 1
 		}
 	}

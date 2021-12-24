@@ -1,4 +1,4 @@
-package main
+package readed
 
 import "sort"
 
