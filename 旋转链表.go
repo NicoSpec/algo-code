@@ -1,4 +1,7 @@
 package main
+
+import "algo-code/readed"
+
 /**
 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。
 
@@ -26,7 +29,7 @@ package main
 链接：https://leetcode-cn.com/problems/rotate-list
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-func rotateRight(head *ListNode, k int) *ListNode {
+func rotateRight(head *readed.ListNode, k int) *readed.ListNode {
 	if k == 0 || head == nil || head.Next == nil {
 		return head
 	}

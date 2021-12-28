@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /**
 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
 
@@ -57,4 +59,31 @@ func uniquePaths(m, n int) int {
 		}
 	}
 	return dp[m-1][n-1]
+}
+func main() {
+	num := uniquePath(7,3)
+	fmt.Println(num)
+}
+func uniquePath(m, n int) int {
+	num := uniquePathsHelper(1, 1, m, n)
+	return num
+}
+
+
+//第i行第j列到第m行第n列共有多少种路径
+func uniquePathsHelper(i,  j, m,  n int)int {
+	//边界条件的判断
+	if i > m || j > n {
+		return 0
+
+	}
+	if i == m && j == n {
+		return 1
+	}
+	//从右边走有多少条路径
+	right := uniquePathsHelper(i + 1, j, m, n)
+	//从下边走有多少条路径
+	down := uniquePathsHelper(i, j + 1, m, n)
+	//返回总的路径
+	return right + down
 }
