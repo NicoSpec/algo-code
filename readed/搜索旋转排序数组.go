@@ -63,3 +63,5 @@ func search(nums []int, target int) int {
 
 	return -1
 }
+
+// 4,5,6,1,2,3
